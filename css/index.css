@@ -1,0 +1,50 @@
+body {
+    font-family: 'Baloo Thambi', cursive;
+}
+
+.header {
+    color: #fff;
+    padding: 3px;
+    font-size: 2em;
+}
+
+.board {
+    background-color: #216AE0;
+    width: 700px;
+    text-align: left;
+    border: 2px solid black;
+    padding: 10px;
+    margin: 10px;
+    display: inline-block;
+}
+
+.card {
+    background-color: #FFFFFF;
+    border: 1px solid black;
+    margin: 6px;
+    padding: 2px;
+}
+
+.list {
+    background-color: #CED8E8;
+    border: 1px solid black;
+    margin: 5px;
+    padding: 5px;
+    width: 200px;
+    display: inline-block;
+}
+
+.person-name {
+    font-weight: bold;
+}
+
+.person-img {
+    display: block;
+    max-width: 128px;
+    max-height: 128px;
+    margin: 10px auto;
+}
+
+.highlight {
+    background-color: yellow;
+}
