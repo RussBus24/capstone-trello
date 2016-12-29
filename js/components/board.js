@@ -1,22 +1,21 @@
 var React = require('react');
 var ReactDOM = require('react-dom');
 var List = require('./list');
-var Header = require('./data');
+var Header = require('./header');
 
+//This is work in progress.
 var Board = React.createClass({
     render: function() {
-        var lists = [];
-        for (var i=0; i<3; i++) {
-            lists.push(<List />);
-        }
         return (
             <div className="board">
-                <Header title = "Things to do" />
-                {lists}
-                <List title = "" />
+            <Header title = "Things to do" />
+                <List title = "Chores" />
+                <List title = "Laundry" />
+                <List title = "Cleaning" />
             </div>
         );
     }
 });
+
 
 module.exports = Board;
