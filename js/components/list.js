@@ -4,12 +4,6 @@ var Card = require('./card');
 
 var List = React.createClass({
     
-    onAddInputChanged: function(event) {
-        this.setState({
-            value: event.target.value
-        });
-    },
-    
     render: function() {
         return (
             <div className="list">
@@ -17,11 +11,11 @@ var List = React.createClass({
                 <Card message = "Vacuum" />
                 <Card message = "Wash" />
                 <Card message = "Dusting" />
-                <form id="addCard">
+                <form id="addCard" onSubmit={this.props.onAddSubmit}>
                 <input 
                     type="text" 
                     name="addCardInput"
-                    onChange={this.onAddInputChanged}
+                    onChange={this.props.onAddInputChanged}
                 />
                 <p><input type="submit" name="Submit" /></p>
                 </form>
