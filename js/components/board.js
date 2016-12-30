@@ -1,12 +1,13 @@
 var React = require('react');
 var ReactDOM = require('react-dom');
 var List = require('./list');
+var ListContainer = require('./list-container');
 var Header = require('./header');
 
 //This is work in progress.
 var Board = React.createClass({
      
-     onAddInputChanged: function(event) {
+    onAddInputChanged: function(event) {
         console.log(event.target.value);
         this.setState({
             value: event.target.value
@@ -22,9 +23,11 @@ var Board = React.createClass({
         return (
             <div className="board">
             <Header title = "Things to do" />
+            
                 <List title = "Chores" onAddInputChanged = {this.onAddInputChanged} onAddSubmit =  {this.onAddSubmit} />
                 <List title = "Laundry" onAddInputChanged = {this.onAddInputChanged} onAddSubmit =  {this.onAddSubmit} />
                 <List title = "Cleaning" onAddInputChanged = {this.onAddInputChanged} onAddSubmit =  {this.onAddSubmit} />
+                <ListContainer />
             </div>
         );
     }

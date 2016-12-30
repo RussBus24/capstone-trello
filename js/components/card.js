@@ -14,10 +14,16 @@ var Card = React.createClass({
       }); 
     },
     
+    onLeave: function() {
+        this.setState({
+            highlight: !this.state.highlight
+        });
+    },
+    
     render: function() {
         var classes = 'card '+ (this.state.highlight ? 'highlight' : '')
             return (
-                <div className={classes} onMouseOver={this.onHover}>
+                <div className={classes} onMouseOver={this.onHover} onMouseOut={this.onLeave}>
                     {this.props.message}
                 </div>
             );
