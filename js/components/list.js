@@ -5,12 +5,14 @@ var Card = require('./card');
 var List = React.createClass({
     
     render: function() {
+        let cards = this.props.cards.map((card)=>{
+            return <Card message={card}/>
+        });
+        
         return (
             <div className="list">
                 <div className="list-title">{this.props.title}</div>
-                <Card message = "Vacuum" />
-                <Card message = "Wash" />
-                <Card message = "Dusting" />
+                {cards}
                 <form id="addCard" onSubmit={this.props.onAddSubmit}>
                 <input 
                     type="text" 

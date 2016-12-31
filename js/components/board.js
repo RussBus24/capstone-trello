@@ -6,28 +6,49 @@ var Header = require('./header');
 
 //This is work in progress.
 var Board = React.createClass({
+    
+    getInitialState: function() {
+        return {
+            listName:'',
+            cards: [],
+            lists: []
+        };
+    },
      
-    onAddInputChanged: function(event) {
+    onAddListInputChanged: function(event) {
         console.log(event.target.value);
         this.setState({
-            value: event.target.value
+            listName: event.target.value
         });
     },
     
-    onAddSubmit: function(event) {
-        console.log(event.target.value);
+    onAddListSubmit: function(event) {
         event.preventDefault();
+        this.state.lists.push(this.state.listName);
+        this.setState({
+            lists: this.state.lists
+        });
+        console.log(this.state.lists);
     },
     
     render: function() {
+        console.log(this.state);
+        let lists = this.state.lists.map((list)=> {
+            return <ListContainer title={list}/>;
+        });
         return (
             <div className="board">
             <Header title = "Things to do" />
-            
-                <List title = "Chores" onAddInputChanged = {this.onAddInputChanged} onAddSubmit =  {this.onAddSubmit} />
-                <List title = "Laundry" onAddInputChanged = {this.onAddInputChanged} onAddSubmit =  {this.onAddSubmit} />
-                <List title = "Cleaning" onAddInputChanged = {this.onAddInputChanged} onAddSubmit =  {this.onAddSubmit} />
-                <ListContainer />
+                {lists}
+                
+                <form id="addList" onSubmit={this.onAddListSubmit}>
+                <input 
+                    type="text" 
+                    name="addListInput"
+                    onChange={this.onAddListInputChanged}
+                />
+                <p><input type="submit" name="Submit" value="Add New List"/></p>
+                </form>
             </div>
         );
     }
