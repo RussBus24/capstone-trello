@@ -14,7 +14,6 @@ describe('CardTest component', function() {
         renderer.render(<CardTest classes={classes} onMouseOver={condition} />);
         var result = renderer.getRenderOutput();
         result.props.className.should.equal('card ');
-        result.props.onMouseOver.should.equal('false');
 
     });
 });
